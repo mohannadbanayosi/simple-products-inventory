@@ -1,0 +1,20 @@
+@(product: Form[CreateProductForm])(implicit messages: Messages)
+
+@import helper._
+
+@main("Welcome to Play") {
+	<script type='text/javascript' src='@routes.Assets.versioned("javascripts/index.js")'></script>
+
+	<ul id="products"></ul>
+
+  @form(routes.ProductController.addProduct()) {
+		@inputText(product("name"))
+		@inputText(product("brand"))
+		@inputText(product("imageUrl"))
+		@inputText(product("price"))
+
+		<div class="buttons">
+			<input type="submit" value="Add Product"/>
+		</div>
+	}
+}
