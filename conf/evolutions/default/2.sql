@@ -1,0 +1,2 @@
+insert into products (id,name, brand, image_url, price) values ( 1,'air max', 'nike', 'https://www.flightclub.com/media/catalog/product/8/0/800548_1_1.jpg', 100);
+insert into products (id,name, brand, image_url, price) values ( 1,'superstar', 'adidas', 'https://media.office.co.uk/medias/sys_master/root/h78/hf0/8967761428510.jpg?version=2.10', 110);

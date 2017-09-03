@@ -14,4 +14,6 @@ libraryDependencies ++= Seq(
   specs2 % Test
 )
 
+libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.0" % Test
+
 fork in run := true
