@@ -68,8 +68,8 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(imp
     var query = products.sortBy(_.id)
 
     c match {
-      case "brand" => query = query.filter(_.brand.like(s"%$q%"))
-      case _ => query = query.filter(_.name.like(s"%$q%"))
+      case "brand" => query = query.filter(_.brand.toLowerCase.like(s"%$q%"))
+      case _ => query = query.filter(_.name.toLowerCase.like(s"%$q%"))
     }
 
     sort match {

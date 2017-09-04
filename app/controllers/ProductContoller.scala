@@ -56,7 +56,7 @@ class ProductController @Inject() (repo: ProductRepository, val messagesApi: Mes
    * The endpoint to get the products and performs the search too.
    */
   def getProducts(per_page: Option[Int], q: Option[String], c: Option[String], page: Option[Int], sort: Option[String], direction: Option[String]) = Action.async {
-  	repo.search(per_page.getOrElse(10), q.getOrElse(""), c.getOrElse(""), page.getOrElse(0), sort.getOrElse("price"), direction.getOrElse("asc")).map { product =>
+  	repo.search(per_page.getOrElse(10), q.getOrElse("").toLowerCase, c.getOrElse(""), page.getOrElse(0), sort.getOrElse("price"), direction.getOrElse("asc")).map { product =>
       Ok(Json.toJson(product))
     }
   }
