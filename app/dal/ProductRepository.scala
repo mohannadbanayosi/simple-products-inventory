@@ -33,7 +33,7 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(imp
 
     def imageUrl = column[String]("image_url")
 
-    def price = column[Int]("price")
+    def price = column[BigDecimal]("price")
 
     /**
      * Table's default "projection".
@@ -46,7 +46,7 @@ class ProductRepository @Inject() (dbConfigProvider: DatabaseConfigProvider)(imp
   /**
    * Creates a new product entry.
    */
-  def create(name: String, brand: String, imageUrl: String, price: Int): Future[Product] = db.run {
+  def create(name: String, brand: String, imageUrl: String, price: BigDecimal): Future[Product] = db.run {
     (products.map(p => (p.name, p.brand, p.imageUrl, p.price))
       returning products.map(_.id)
       into ((info, id) => Product(id, info._1, info._2, info._3, info._4))

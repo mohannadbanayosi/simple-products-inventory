@@ -5,7 +5,7 @@ create table "products" (
   "name" varchar not null,
   "brand" varchar not null,
   "image_url" varchar not null,
-  "price" int not null
+  "price" real not null
 );
 
 # --- !Downs

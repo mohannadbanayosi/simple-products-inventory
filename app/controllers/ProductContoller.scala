@@ -26,7 +26,7 @@ class ProductController @Inject() (repo: ProductRepository, val messagesApi: Mes
       "name" -> nonEmptyText,
       "brand" -> nonEmptyText,
       "imageUrl" -> nonEmptyText,
-      "price" -> number.verifying(min(0), max(10000))
+      "price" -> bigDecimal
     )(CreateProductForm.apply)(CreateProductForm.unapply)
   }
 
@@ -65,4 +65,4 @@ class ProductController @Inject() (repo: ProductRepository, val messagesApi: Mes
 /**
  * The create product form.
  */
-case class CreateProductForm(name: String, brand: String, imageUrl: String, price: Int)
+case class CreateProductForm(name: String, brand: String, imageUrl: String, price: BigDecimal)
