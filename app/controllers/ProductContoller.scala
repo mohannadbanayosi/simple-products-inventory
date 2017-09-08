@@ -33,7 +33,7 @@ class ProductController @Inject() (repo: ProductRepository, val messagesApi: Mes
   private val logger = Logger(getClass)
 
   def index = Action {
-    Ok(views.html.index_products(productForm))
+    Ok("Product inventory")
   }
 
   /**
